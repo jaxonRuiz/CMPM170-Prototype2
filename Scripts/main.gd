@@ -19,5 +19,5 @@ func _input(event: InputEvent) -> void:
 		print("next turn");
 
 func processTurn():
-	pass
+	groups.processTurn();
 	
