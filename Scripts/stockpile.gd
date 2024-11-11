@@ -21,10 +21,8 @@ func _process(delta: float) -> void:
 
 func _to_string() -> String:
 	var out = "";
-	out += "materials: " + str(resources["material"]);
-	out += "\nmedicines: " + str(resources["medicine"]);
-	out += "\nfood: " + str(resources["food"]);
-	out += "\ntools: " + str(resources["tools"]);
-	out += "\ntools: " + str(resources["knowledge"]);
-	out += "\ntools: " + str(resources["security"]);
+	for resource in resources.keys():
+		out += resource + ": ";
+		out += str(resources[resource]);
+		out += "\n";
 	return out;

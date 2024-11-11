@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cnkqlwd0dyxg8"]
+[gd_scene load_steps=6 format=3 uid="uid://b6ttu5cgj4a8p"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i4ymt"]
 corner_radius_top_left = 4
@@ -275,7 +275,7 @@ offset_right = -15.0
 offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 0
-value = 120.0
+value = 100.0
 allow_greater = true
 
 [node name="Gatherers" type="Panel" parent="Control"]

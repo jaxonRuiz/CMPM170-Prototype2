@@ -2,6 +2,7 @@ class_name Group extends Node
 enum GroupTypes {
 	MEDICAL,
 	GATHERER,
+	FARMER,
 	FACTORY,
 	RESEARCH,
 	MILITARY
@@ -75,6 +76,7 @@ func process_output():
 	return output;
 	
 
+# overflow resources just aren't used
 func setInput(resources:Dictionary):
 	for resource in resources.keys():
 		recieved_input[resource] = resources[resource];
@@ -82,9 +84,12 @@ func setInput(resources:Dictionary):
 func processTurn(stockpile:Dictionary):	
 	
 	# update stability based on resource satisfaction
-	stability = (stability + resource_satisfaction)/2
-	for resource in recieved_input.keys():
-		stockpile[resource] -= recieved_input[resource];
+	stability = (stability + resource_satisfaction + 0.1)/2
+	for resource in expected_input.keys():
+		if recieved_input[resource] <= expected_input[resource] * 1.1:
+			stockpile[resource] -= recieved_input[resource];
+		else:
+			stockpile[resource] -= expected_input[resource] * 1.1;
 	
 	print("produced: %d %s" % [process_output(), output_type]);
 	stockpile[output_type] += process_output();
@@ -95,10 +100,57 @@ func processTurn(stockpile:Dictionary):
 
 class MedicalGroup extends Group:
 	func _init(type):
-		population = 100;
+		population = 80;
+		production_costs["knowledge"] = 0.5;
+		production_costs["food"] = 0.2;
+		production_costs["material"] = 0.4;
+		production_ratio = 0.2;
+		output_type = "medicine";
+		super._init(type);
+
+class GathererGroup extends Group:
+	func _init(type):
+		population = 300;
+		production_costs["food"] = 0.4;
+		production_costs["tools"] = 0.2;
+		production_ratio = 2;
+		output_type = "material";
+		super._init(type);
+
+class FarmerGroup extends Group:
+	func _init(type):
+		population = 300;
 		production_costs["knowledge"] = 0.2;
 		production_costs["food"] = 0.2;
 		production_costs["material"] = 0.2;
 		production_ratio = 0.2;
-		output_type = "medicine";
+		output_type = "food";
+		super._init(type);
+
+class FactoryGroup extends Group:
+	func _init(type):
+		population = 150;
+		production_costs["food"] = 3.5;
+		production_costs["material"] = 3.5;
+		production_ratio = 3.5;
+		output_type = "tools";
+		super._init(type);
+
+class ResearchGroup extends Group:
+	func _init(type):
+		population = 50;
+		production_costs["food"] = 0.1;
+		production_costs["tools"] = 0.1;
+		production_ratio = 10;
+		output_type = "knowledge";
+		super._init(type);
+
+class MilitaryGroup extends Group:
+	func _init(type):
+		population = 100;
+		production_costs["medicine"] = 2.5;
+		production_costs["food"] = 1.25;
+		production_costs["tools"] = 2.5;
+		production_ratio = 2.5;
+		output_type = "security";
 		super._init(type);
