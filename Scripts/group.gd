@@ -120,10 +120,9 @@ class GathererGroup extends Group:
 class FarmerGroup extends Group:
 	func _init(type):
 		population = 300;
-		production_costs["knowledge"] = 0.2;
-		production_costs["food"] = 0.2;
-		production_costs["material"] = 0.2;
-		production_ratio = 0.2;
+		production_costs["security"] = 0.2;
+		production_costs["tools"] = 0.02;
+		production_ratio = 10;
 		output_type = "food";
 		super._init(type);
 

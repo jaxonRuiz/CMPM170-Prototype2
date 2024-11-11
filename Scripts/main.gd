@@ -9,13 +9,16 @@ var allocated_resoureces = {}:
 		allocated_resoureces["material"] = 0.0;
 		allocated_resoureces["tools"] = 0.0;
 		allocated_resoureces["knowledge"] = 0.0;
+		allocated_resoureces["security"] = 0.0;
 		for group in groups:
 			for key in allocated_resoureces.keys():
 				if key in group.expected_input.keys(): 
 					allocated_resoureces[key] += group.expected_input[key];
 		
 		return allocated_resoureces;
-			
+
+var resource_change_history = [];
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	for type in Group.GroupTypes:
@@ -48,7 +51,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	$ResourceLabel.text = stockpile.to_string();
+	$ResourceLabel.text = "Total Resources: \n" + stockpile.to_string();
 	pass
 
 func _input(event: InputEvent) -> void:
@@ -58,11 +61,35 @@ func _input(event: InputEvent) -> void:
 			print("next turn");
 
 func processTurn():
+	var past_stockpile = stockpile.resources.duplicate();
+	updateAllocatedResources();
 	for group in groups:
 		group.processTurn(stockpile.resources);
+	
+	var net_change = stockpile.resources.duplicate();
+	var net_change_text = "Net Change: \n";
+	for resource in net_change:
+		net_change[resource] -= past_stockpile[resource];
+		net_change_text += resource + ": ";
+		net_change_text += str(net_change[resource]) + "\n";
+	
+	resource_change_history.append(net_change);
+	$NetChangeLabel.text = net_change_text;
+
+
+# should be called everytime user enters an input to resources.
+func updateAllocatedResources():
+	var out:String = "Resources Spent:\n";
+	var alloc = allocated_resoureces.duplicate();
+	for resource in alloc.keys():
+		out += resource + ": ";
+		out += str(alloc[resource]);
+		out += "\n";
+	$AllocationLabel.text = out;
 
 func checkResourceAvailability():
 	return true;
+	
 	for resource in allocated_resoureces.keys():
 		if stockpile.resources[resource] < allocated_resoureces[resource]:
 			print("INSUFFICIENT RESOURCES");
