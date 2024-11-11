@@ -59,7 +59,7 @@ func setInput(resources:Dictionary):
 func processTurn(stockpile:Dictionary):	
 	
 	# update stability based on resource satisfaction
-	stability = (stability + resource_satisfaction + (OVERFLOW_AMOUNT - 1))/2
+	stability = (stability + resource_satisfaction )/2
 	printraw(my_type);
 	print(stability);
 	for resource in expected_input.keys():
