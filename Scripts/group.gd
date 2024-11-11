@@ -7,6 +7,7 @@ enum GroupTypes {
 	RESEARCH,
 	MILITARY
 }
+const OVERFLOW_AMOUNT = 1.2; # amount production/stability can be overclocked by excess resources.
 
 var stability: float; # stability = 1 - (infected/(health+infected)) and maybe some modifier for stability?
 var resource_satisfaction:
@@ -15,7 +16,7 @@ var resource_satisfaction:
 		var total: float = 0.0;
 		for resource in expected_input.keys():
 			if expected_input[resource] != 0:
-				total += clamp(float(recieved_input[resource]) / float(expected_input[resource]), 0, 1.1);
+				total += clamp(float(recieved_input[resource]) / float(expected_input[resource]), 0, OVERFLOW_AMOUNT);
 				count += 1;
 		return total/count;
 		
@@ -58,14 +59,14 @@ func setInput(resources:Dictionary):
 func processTurn(stockpile:Dictionary):	
 	
 	# update stability based on resource satisfaction
-	stability = (stability + resource_satisfaction + 0.1)/2
+	stability = (stability + resource_satisfaction + (OVERFLOW_AMOUNT - 1))/2
 	printraw(my_type);
 	print(stability);
 	for resource in expected_input.keys():
-		if recieved_input[resource] <= expected_input[resource] * 1.1:
+		if recieved_input[resource] <= expected_input[resource] * OVERFLOW_AMOUNT:
 			stockpile[resource] -= recieved_input[resource];
 		else:
-			stockpile[resource] -= expected_input[resource] * 1.1;
+			stockpile[resource] -= expected_input[resource] * OVERFLOW_AMOUNT;
 	
 	print("produced: %d %s" % [process_output(), output_type]);
 	stockpile[output_type] += process_output();
