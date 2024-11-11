@@ -8,32 +8,6 @@ enum GroupTypes {
 	MILITARY
 }
 
-#func _ready():
-	#for type in GroupTypes:
-		#match GroupTypes[type]:
-			#GroupTypes.MEDICAL:
-				#print("type: medical");
-				#groups.append(MedicalGroup.new(type));
-			#GroupTypes.GATHERER:
-				#print("type: gatherer");
-				#groups.append(Group.new(type));
-			#GroupTypes.FACTORY:
-				#print("type: factory");
-				#groups.append(Group.new(type));
-			#GroupTypes.RESEARCH:
-				#print("type: research");
-				#groups.append(Group.new(type));
-			#GroupTypes.MILITARY:
-				#print("type: military");
-				#groups.append(Group.new(type));
-			#_:
-				#print("??")
-				#
-#func processTurn():
-	#for group in groups:
-		#group.processTurn();
-
-
 var stability: float; # stability = 1 - (infected/(health+infected)) and maybe some modifier for stability?
 var resource_satisfaction:
 	get: 
@@ -46,7 +20,7 @@ var resource_satisfaction:
 		return total/count;
 		
 var production_ratio; # in terms of product/ unit(s) of input. to be multiplied by population
-var population
+var population;
 var recieved_input = {};
 var expected_input = {}; # total expected input
 var production_costs = {}; # raw amounts of resources needed
@@ -85,6 +59,8 @@ func processTurn(stockpile:Dictionary):
 	
 	# update stability based on resource satisfaction
 	stability = (stability + resource_satisfaction + 0.1)/2
+	printraw(my_type);
+	print(stability);
 	for resource in expected_input.keys():
 		if recieved_input[resource] <= expected_input[resource] * 1.1:
 			stockpile[resource] -= recieved_input[resource];
