@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://b6ttu5cgj4a8p"]
+[gd_scene load_steps=6 format=3 uid="uid://cnkqlwd0dyxg8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i4ymt"]
 corner_radius_top_left = 4
@@ -213,7 +213,6 @@ offset_right = -15.0
 offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 0
-value = 50.0
 allow_greater = true
 
 [node name="Military" type="Panel" parent="Control"]
@@ -275,7 +274,7 @@ offset_right = -15.0
 offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 0
-value = 100.0
+value = 120.0
 allow_greater = true
 
 [node name="Gatherers" type="Panel" parent="Control"]
@@ -337,11 +336,43 @@ grow_vertical = 0
 value = 100.0
 allow_greater = true
 
+[node name="Resource Pools" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -168.0
+offset_top = 24.0
+offset_right = -24.0
+offset_bottom = 249.0
+grow_horizontal = 0
+
+[node name="ItemList" type="ItemList" parent="Control/Resource Pools"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.0
+offset_top = -105.5
+offset_right = 66.0
+offset_bottom = 104.5
+grow_horizontal = 2
+grow_vertical = 2
+item_count = 6
+item_0/text = "Medicine:"
+item_1/text = "Food:"
+item_2/text = "Materials:"
+item_3/text = "Tools:"
+item_4/text = "Knowledge:"
+item_5/text = "Security:"
+
 [node name="ProgressBar" type="ProgressBar" parent="."]
 anchors_preset = 9
 anchor_bottom = 1.0
 offset_left = 24.0
-offset_top = 118.0
+offset_top = 150.0
 offset_right = 109.0
 offset_bottom = 618.0
 grow_vertical = 2
