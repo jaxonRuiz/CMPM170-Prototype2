@@ -13,12 +13,6 @@ script = ExtResource("1_f5xc3")
 [node name="Groups" type="Node" parent="."]
 script = ExtResource("2_gsoio")
 
-[node name="AllocationLabel" type="Label" parent="."]
-offset_left = 79.0
-offset_top = 1.0
-offset_right = 119.0
-offset_bottom = 24.0
-
-[node name="ResourceLabel" type="Label" parent="."]
+[node name="Label" type="Label" parent="."]
 offset_right = 321.0
 offset_bottom = 239.0
