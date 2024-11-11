@@ -81,7 +81,7 @@ class MedicalGroup extends Group:
 		production_costs["knowledge"] = 0.5;
 		production_costs["food"] = 0.2;
 		production_costs["material"] = 0.4;
-		production_ratio = 0.2;
+		production_ratio = 3.25;
 		output_type = "medicine";
 		super._init(type);
 
@@ -98,8 +98,9 @@ class FarmerGroup extends Group:
 	func _init(type):
 		population = 300;
 		production_costs["security"] = 0.2;
-		production_costs["tools"] = 0.02;
-		production_ratio = 10;
+		production_costs["tools"] = 0.2;
+		production_costs["food"] = 0.2;
+		production_ratio = 3;
 		output_type = "food";
 		super._init(type);
 
@@ -108,16 +109,16 @@ class FactoryGroup extends Group:
 		population = 150;
 		production_costs["food"] = 3.5;
 		production_costs["material"] = 3.5;
-		production_ratio = 3.5;
+		production_ratio = 2.6;
 		output_type = "tools";
 		super._init(type);
 
 class ResearchGroup extends Group:
 	func _init(type):
 		population = 50;
-		production_costs["food"] = 0.1;
-		production_costs["tools"] = 0.1;
-		production_ratio = 10;
+		production_costs["food"] = 0.2;
+		production_costs["tools"] = 0.2;
+		production_ratio = 1;
 		output_type = "knowledge";
 		super._init(type);
 
@@ -127,6 +128,6 @@ class MilitaryGroup extends Group:
 		production_costs["medicine"] = 2.5;
 		production_costs["food"] = 1.25;
 		production_costs["tools"] = 2.5;
-		production_ratio = 2.5;
+		production_ratio = 0.75;
 		output_type = "security";
 		super._init(type);
