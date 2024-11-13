@@ -1,4 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://cnkqlwd0dyxg8"]
+[gd_scene load_steps=21 format=3 uid="uid://cnkqlwd0dyxg8"]
+
+[ext_resource type="Texture2D" uid="uid://bdoy0hjkj66fw" path="res://Assets/facund.png" id="1_8hnhv"]
+[ext_resource type="Texture2D" uid="uid://bfiwieckoq0yg" path="res://Assets/facout.png" id="2_1ytfr"]
+[ext_resource type="Texture2D" uid="uid://q86corlo4tfm" path="res://Assets/facove.png" id="3_c8dge"]
+[ext_resource type="Texture2D" uid="uid://c017kp6w62ffi" path="res://Assets/medund.png" id="4_lyqik"]
+[ext_resource type="Texture2D" uid="uid://clgno4sgiarup" path="res://Assets/medove.png" id="5_7mx2r"]
+[ext_resource type="Texture2D" uid="uid://c5sely1a0c6ut" path="res://Assets/medprog.png" id="6_j1c88"]
+[ext_resource type="Texture2D" uid="uid://darll0w6vpeun" path="res://Assets/gatund.png" id="7_c8gfd"]
+[ext_resource type="Texture2D" uid="uid://dbw8dxhdupd6p" path="res://Assets/gatove.png" id="8_jh7ov"]
+[ext_resource type="Texture2D" uid="uid://4604668gk5qu" path="res://Assets/gatprog.png" id="9_kg8m2"]
+[ext_resource type="Texture2D" uid="uid://b55kh1o7kef3j" path="res://Assets/resund.png" id="10_iwls1"]
+[ext_resource type="Texture2D" uid="uid://bo81tact44rr" path="res://Assets/resove.png" id="11_fwwt1"]
+[ext_resource type="Texture2D" uid="uid://fnmnavbgu48u" path="res://Assets/resprog.png" id="12_2j71g"]
+[ext_resource type="Texture2D" uid="uid://bdaopuua7wtp4" path="res://Assets/milund.png" id="13_bljgt"]
+[ext_resource type="Texture2D" uid="uid://duvdydsh14mv1" path="res://Assets/milove.png" id="14_486qd"]
+[ext_resource type="Texture2D" uid="uid://dt8y4uuniqeep" path="res://Assets/milprog.png" id="15_nexwo"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i4ymt"]
 corner_radius_top_left = 4
@@ -274,7 +290,7 @@ offset_right = -15.0
 offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 0
-value = 120.0
+value = 100.0
 allow_greater = true
 
 [node name="Gatherers" type="Panel" parent="Control"]
@@ -367,6 +383,100 @@ item_2/text = "Materials:"
 item_3/text = "Tools:"
 item_4/text = "Knowledge:"
 item_5/text = "Security:"
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -304.5
+offset_top = -165.0
+offset_right = -134.5
+offset_bottom = -55.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 20.0
+fill_mode = 2
+texture_under = ExtResource("1_8hnhv")
+texture_over = ExtResource("2_1ytfr")
+texture_progress = ExtResource("3_c8dge")
+
+[node name="TextureProgressBar2" type="TextureProgressBar" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -88.5
+offset_top = -165.0
+offset_right = 81.5
+offset_bottom = -55.0
+grow_horizontal = 2
+grow_vertical = 2
+fill_mode = 2
+texture_under = ExtResource("4_lyqik")
+texture_over = ExtResource("5_7mx2r")
+texture_progress = ExtResource("6_j1c88")
+
+[node name="TextureProgressBar3" type="TextureProgressBar" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 154.5
+offset_top = -165.0
+offset_right = 324.5
+offset_bottom = -55.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 50.0
+fill_mode = 2
+texture_under = ExtResource("7_c8gfd")
+texture_over = ExtResource("8_jh7ov")
+texture_progress = ExtResource("9_kg8m2")
+
+[node name="TextureProgressBar4" type="TextureProgressBar" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -218.5
+offset_top = 21.0
+offset_right = -48.5
+offset_bottom = 131.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 20.0
+fill_mode = 2
+texture_under = ExtResource("10_iwls1")
+texture_over = ExtResource("11_fwwt1")
+texture_progress = ExtResource("12_2j71g")
+
+[node name="TextureProgressBar5" type="TextureProgressBar" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 105.5
+offset_top = 21.0
+offset_right = 275.5
+offset_bottom = 131.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 60.0
+fill_mode = 2
+texture_under = ExtResource("13_bljgt")
+texture_over = ExtResource("14_486qd")
+texture_progress = ExtResource("15_nexwo")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 anchors_preset = 9
