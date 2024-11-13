@@ -61,6 +61,7 @@ func calculate_expected_resources():
 	
 
 func process_output():
+	if population == 0: return 0;
 	var output = population * production_ratio * stability * resource_satisfaction# * randf_range(0.8, 1.2);
 	return output;
 	
