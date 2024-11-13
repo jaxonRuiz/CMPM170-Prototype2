@@ -13,4 +13,5 @@ func _process(delta):
 func setNameLabel(name:String):
 	nameLabel.text = name;
 
-func setStabilityBar()
+func setStabilityBar():
+	pass;

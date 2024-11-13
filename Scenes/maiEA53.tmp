@@ -1,0 +1,109 @@
+[gd_scene load_steps=5 format=3 uid="uid://dokdkx2hfg3hi"]
+
+[ext_resource type="Script" path="res://Scripts/stockpile.gd" id="1_f5xc3"]
+[ext_resource type="Script" path="res://Scripts/main.gd" id="1_o1l7r"]
+[ext_resource type="Script" path="res://Scripts/group.gd" id="2_gsoio"]
+[ext_resource type="PackedScene" uid="uid://dq6rmn5t3ryrp" path="res://Scenes/groupPanel.tscn" id="4_5cbqy"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_o1l7r")
+
+[node name="Stockpile" type="Node" parent="."]
+script = ExtResource("1_f5xc3")
+
+[node name="Groups" type="Node" parent="."]
+script = ExtResource("2_gsoio")
+
+[node name="NetChangeLabel" type="Label" parent="."]
+offset_left = 603.0
+offset_top = 1.0
+offset_right = 804.0
+offset_bottom = 161.0
+
+[node name="AllocationLabel" type="Label" parent="."]
+offset_left = 266.0
+offset_top = -1.0
+offset_right = 429.0
+offset_bottom = 142.0
+
+[node name="ResourceLabel" type="Label" parent="."]
+offset_right = 177.0
+offset_bottom = 126.0
+
+[node name="GroupBox" parent="." instance=ExtResource("4_5cbqy")]
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 184.0
+offset_top = 49.0
+offset_right = 398.0
+offset_bottom = 152.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="GroupBox2" parent="." instance=ExtResource("4_5cbqy")]
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 678.0
+offset_top = 495.0
+offset_right = 892.0
+offset_bottom = 598.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="GroupBox3" parent="." instance=ExtResource("4_5cbqy")]
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 801.0
+offset_top = 48.0
+offset_right = 1015.0
+offset_bottom = 151.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="GroupBox4" parent="." instance=ExtResource("4_5cbqy")]
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 512.0
+offset_top = 43.0
+offset_right = 726.0
+offset_bottom = 146.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="GroupBox5" parent="." instance=ExtResource("4_5cbqy")]
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 383.0
+offset_top = 498.0
+offset_right = 597.0
+offset_bottom = 601.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="GroupBox6" parent="." instance=ExtResource("4_5cbqy")]
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 766.0
+offset_top = 996.0
+offset_right = 980.0
+offset_bottom = 1099.0
+grow_horizontal = 1
+grow_vertical = 1
