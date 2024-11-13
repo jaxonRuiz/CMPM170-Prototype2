@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfiwieckoq0yg"
-path="res://.godot/imported/facout.png-0d99f8ece0e01157b5e2131bc2e94f66.ctex"
+uid="uid://q86corlo4tfm"
+path="res://.godot/imported/facprog.png-4813788098baad947ab26d702aeed390.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/facout.png"
-dest_files=["res://.godot/imported/facout.png-0d99f8ece0e01157b5e2131bc2e94f66.ctex"]
+source_file="res://Assets/facprog.png"
+dest_files=["res://.godot/imported/facprog.png-4813788098baad947ab26d702aeed390.ctex"]
 
 [params]
 

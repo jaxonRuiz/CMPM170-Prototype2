@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfiwieckoq0yg"
-path="res://.godot/imported/facove.png-9544b1791948fcb834615e150577ec0e.ctex"
+uid="uid://bk1bx2sj1smxh"
+path="res://.godot/imported/farprog.png-753ce8feb68a583146d1395afc8c8e8a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/facove.png"
-dest_files=["res://.godot/imported/facove.png-9544b1791948fcb834615e150577ec0e.ctex"]
+source_file="res://Assets/farprog.png"
+dest_files=["res://.godot/imported/farprog.png-753ce8feb68a583146d1395afc8c8e8a.ctex"]
 
 [params]
 

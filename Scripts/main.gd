@@ -2,6 +2,11 @@ extends Node2D
 
 @onready var stockpile = Stockpile.new();
 var groups: Array[Group] = [];
+var total_population:
+	get:
+		var count = 0;
+		for group in groups:
+			count += group.population;
 var allocated_resoureces = {}:
 	get:
 		allocated_resoureces["food"] = 0.0;
@@ -48,6 +53,7 @@ func _ready() -> void:
 	#groups[0].setInput({"material": 100, "food": 100, "knowledge": 100}); #manual for now
 	for group in groups:
 		group.setInput(group.expected_input);
+	processTurn();
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -72,7 +78,7 @@ func processTurn():
 	for resource in net_change:
 		net_change[resource] -= past_stockpile[resource];
 		net_change_text += resource + ": ";
-		net_change_text += str(net_change[resource]) + "\n";
+		net_change_text += str(floor(net_change[resource])) + "\n";
 	
 	resource_change_history.append(net_change);
 	$NetChangeLabel.text = net_change_text;
@@ -84,7 +90,7 @@ func updateAllocatedResources():
 	var alloc = allocated_resoureces.duplicate();
 	for resource in alloc.keys():
 		out += resource + ": ";
-		out += str(alloc[resource]);
+		out += str(floor(alloc[resource]));
 		out += "\n";
 	$AllocationLabel.text = out;
 

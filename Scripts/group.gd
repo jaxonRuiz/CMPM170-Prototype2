@@ -22,12 +22,22 @@ var resource_satisfaction:
 		return total/count;
 		
 var production_ratio; # in terms of product/ unit(s) of input. to be multiplied by population
-var population;
+var population: 
+	set(pop):
+		if pop > 0:
+			population = pop;
+		else:
+			population = 0;
 var recieved_input = {};
 var expected_input = {}; # total expected input
 var production_costs = {}; # raw amounts of resources needed
 var additional_upkeep = {}; # extra resources needed circumstantially
 var output_type: String;
+var infected = 1;
+var infected_percent:
+	get:
+		if population == 0: return 1;
+		return infected/population;
 
 var resource_types = ["medicine", "food", "material", "tools", "knowledge", "security"]
 var my_type: GroupTypes;
@@ -39,6 +49,7 @@ func _init(type, ui):
 	group_box.setNameLabel(type);
 	my_type = GroupTypes[type];
 	stability = 1.0;
+	group_box.loadTextures(str(type).to_lower().left(3));
 	for resource in resource_types:
 		recieved_input[resource] = 0;
 	calculate_expected_resources();
@@ -50,7 +61,7 @@ func calculate_expected_resources():
 	
 
 func process_output():
-	var output = population * production_ratio * stability * resource_satisfaction;
+	var output = population * production_ratio * stability * resource_satisfaction# * randf_range(0.8, 1.2);
 	return output;
 	
 
@@ -63,17 +74,23 @@ func processTurn(stockpile:Dictionary):
 	
 	# update stability based on resource satisfaction
 	stability = (stability + resource_satisfaction )/2
-	printraw(my_type);
-	print(stability);
+	group_box.setStabilityBar(int(stability*100))
 	for resource in expected_input.keys():
 		if recieved_input[resource] <= expected_input[resource] * OVERFLOW_AMOUNT:
 			stockpile[resource] -= recieved_input[resource];
 		else:
 			stockpile[resource] -= expected_input[resource] * OVERFLOW_AMOUNT;
 	
-	print("produced: %d %s" % [process_output(), output_type]);
 	stockpile[output_type] += process_output();
-	# feed process_output() into stockpile
+
+	population *= (recieved_input["food"]/expected_input["food"]) + 0.12;
+	if infected > 0:
+		var new_infected = round(infected * 0.5)
+		infected += new_infected;
+		population -= new_infected
+	
+	group_box.updateInfectionBar(round(infected_percent*100));
+	group_box.updatePopulation(population);
 	calculate_expected_resources();
 	
 	
@@ -86,6 +103,7 @@ class MedicalGroup extends Group:
 		production_costs["material"] = 0.4;
 		production_ratio = 3.25;
 		output_type = "medicine";
+		
 		super._init(type, ui);
 
 class GathererGroup extends Group:

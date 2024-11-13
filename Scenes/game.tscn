@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Scenes/game.gd" id="1_01eu0"]
 [ext_resource type="Texture2D" uid="uid://bdoy0hjkj66fw" path="res://Assets/facund.png" id="1_8hnhv"]
-[ext_resource type="Texture2D" uid="uid://bfiwieckoq0yg" path="res://Assets/facout.png" id="2_1ytfr"]
-[ext_resource type="Texture2D" uid="uid://q86corlo4tfm" path="res://Assets/facove.png" id="3_c8dge"]
+[ext_resource type="Texture2D" uid="uid://bfiwieckoq0yg" path="res://Assets/facove.png" id="2_1ytfr"]
+[ext_resource type="Texture2D" uid="uid://q86corlo4tfm" path="res://Assets/facprog.png" id="3_c8dge"]
 [ext_resource type="Texture2D" uid="uid://c017kp6w62ffi" path="res://Assets/medund.png" id="4_lyqik"]
 [ext_resource type="Texture2D" uid="uid://clgno4sgiarup" path="res://Assets/medove.png" id="5_7mx2r"]
 [ext_resource type="Texture2D" uid="uid://c5sely1a0c6ut" path="res://Assets/medprog.png" id="6_j1c88"]

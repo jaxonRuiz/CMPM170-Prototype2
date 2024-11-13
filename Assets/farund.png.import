@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfiwieckoq0yg"
-path="res://.godot/imported/facove.png-9544b1791948fcb834615e150577ec0e.ctex"
+uid="uid://dpx88hst5noxm"
+path="res://.godot/imported/farund.png-4fe6a6c2ddd301e5769296aa2cfa2809.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/facove.png"
-dest_files=["res://.godot/imported/facove.png-9544b1791948fcb834615e150577ec0e.ctex"]
+source_file="res://Assets/farund.png"
+dest_files=["res://.godot/imported/farund.png-4fe6a6c2ddd301e5769296aa2cfa2809.ctex"]
 
 [params]
 

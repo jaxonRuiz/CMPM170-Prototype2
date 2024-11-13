@@ -23,6 +23,6 @@ func _to_string() -> String:
 	var out = "";
 	for resource in resources.keys():
 		out += resource + ": ";
-		out += str(resources[resource]);
+		out += str(floor(resources[resource]));
 		out += "\n";
 	return out;
