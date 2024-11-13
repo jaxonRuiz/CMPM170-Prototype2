@@ -7,6 +7,13 @@ var total_population:
 		var count = 0;
 		for group in groups:
 			count += group.population;
+		return count;
+var total_infected:
+	get:
+		var count = 0;
+		for group in groups:
+			count += group.infected;
+		return count;
 var allocated_resoureces = {}:
 	get:
 		allocated_resoureces["food"] = 0.0;
@@ -79,7 +86,7 @@ func processTurn():
 		net_change[resource] -= past_stockpile[resource];
 		net_change_text += resource + ": ";
 		net_change_text += str(floor(net_change[resource])) + "\n";
-	
+	$ProgressBar.value = round(total_infected/(total_population+total_infected) * 100)
 	resource_change_history.append(net_change);
 	$NetChangeLabel.text = net_change_text;
 

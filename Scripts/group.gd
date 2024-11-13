@@ -37,7 +37,7 @@ var infected = 1;
 var infected_percent:
 	get:
 		if population == 0: return 1;
-		return infected/population;
+		return infected/(infected+population);
 
 var resource_types = ["medicine", "food", "material", "tools", "knowledge", "security"]
 var my_type: GroupTypes;
