@@ -1,0 +1,90 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfc6koxisiibn"]
+
+[ext_resource type="Script" path="res://window.gd" id="1_ovg0f"]
+
+[node name="Camera2D" type="Camera2D"]
+script = ExtResource("1_ovg0f")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 122.0
+offset_top = 80.0
+offset_right = 302.0
+offset_bottom = 167.0
+text = "press for window"
+
+[node name="Window" type="Window" parent="."]
+auto_translate_mode = 1
+initial_position = 1
+size = Vector2i(250, 400)
+
+[node name="Camera2D" type="Camera2D" parent="Window"]
+position = Vector2(125, 200)
+
+[node name="Control" type="Control" parent="Window/Camera2D"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 329.0
+offset_top = -61.0
+offset_right = 369.0
+offset_bottom = -21.0
+
+[node name="Panel" type="Panel" parent="Window/Camera2D/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Medicine" type="Panel" parent="Window/Camera2D/Control/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -101.0
+offset_top = -143.0
+offset_right = 99.0
+offset_bottom = -93.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MedicinesSlide" type="HSlider" parent="Window/Camera2D/Control/Panel/Medicine"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -74.0
+offset_top = -25.0
+offset_right = 74.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="Window/Camera2D/Control/Panel/Medicine"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Medicine"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]
+[connection signal="close_requested" from="Window" to="." method="_on_window_close_requested"]
+[connection signal="value_changed" from="Window/Camera2D/Control/Panel/Medicine/MedicinesSlide" to="." method="_on_medicines_slide_value_changed"]
