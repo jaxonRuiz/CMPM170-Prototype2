@@ -57,7 +57,7 @@ func _ready() -> void:
 		group.setInput(group.expected_input);
 	
 	# Connect LineEdit nodes' text_entered signals to handle user input
-	$Control/ResourcePools/ItemList/MedicineInput.connect("_on_input_entered", ["Medical"](self, "text_entered")
+	$Control/ResourcePools/ItemList/MedicineInput.connect("_on_input_entered", ["Medical"](self, "text_entered"))
 	$Control/ResourcePools/ItemList/FoodInput.connect("text_entered", self, "_on_input_entered", ["Food"])
 	$Control/ResourcePools/ItemList/MaterialsInput.connect("text_entered", self, "_on_input_entered", ["Materials"])
 	$Control/ResourcePools/ItemList/ToolsInput.connect("text_entered", self, "_on_input_entered", ["Tools"])

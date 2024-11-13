@@ -1,4 +1,4 @@
-extends Node
+class_name Stockpile extends Node
 
 var resources = {
 	"food": 100.0,

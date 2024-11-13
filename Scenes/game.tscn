@@ -1,5 +1,6 @@
-[gd_scene load_steps=21 format=3 uid="uid://cnkqlwd0dyxg8"]
+[gd_scene load_steps=22 format=3 uid="uid://cnkqlwd0dyxg8"]
 
+[ext_resource type="Script" path="res://Scenes/game.gd" id="1_01eu0"]
 [ext_resource type="Texture2D" uid="uid://bdoy0hjkj66fw" path="res://Assets/facund.png" id="1_8hnhv"]
 [ext_resource type="Texture2D" uid="uid://bfiwieckoq0yg" path="res://Assets/facout.png" id="2_1ytfr"]
 [ext_resource type="Texture2D" uid="uid://q86corlo4tfm" path="res://Assets/facove.png" id="3_c8dge"]
@@ -47,6 +48,7 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_01eu0")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

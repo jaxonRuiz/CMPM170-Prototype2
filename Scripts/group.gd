@@ -10,6 +10,7 @@ enum GroupTypes {
 const OVERFLOW_AMOUNT = 1.2; # amount production/stability can be overclocked by excess resources.
 
 var stability: float; # stability = 1 - (infected/(health+infected)) and maybe some modifier for stability?
+var group_box;
 var resource_satisfaction:
 	get: 
 		var count = 0.0;
@@ -32,8 +33,10 @@ var resource_types = ["medicine", "food", "material", "tools", "knowledge", "sec
 var my_type: GroupTypes;
 
 
-func _init(type):
+func _init(type, ui):
 	#print("initializing Group of type: " + str(type));
+	group_box = ui;
+	group_box.setNameLabel(type);
 	my_type = GroupTypes[type];
 	stability = 1.0;
 	for resource in resource_types:
@@ -72,62 +75,62 @@ func processTurn(stockpile:Dictionary):
 	stockpile[output_type] += process_output();
 	# feed process_output() into stockpile
 	calculate_expected_resources();
-	pass
+	
 	
 
 class MedicalGroup extends Group:
-	func _init(type):
+	func _init(type, ui):
 		population = 80;
 		production_costs["knowledge"] = 0.5;
 		production_costs["food"] = 0.2;
 		production_costs["material"] = 0.4;
 		production_ratio = 3.25;
 		output_type = "medicine";
-		super._init(type);
+		super._init(type, ui);
 
 class GathererGroup extends Group:
-	func _init(type):
+	func _init(type, ui):
 		population = 300;
 		production_costs["food"] = 0.4;
 		production_costs["tools"] = 0.2;
 		production_ratio = 2;
 		output_type = "material";
-		super._init(type);
+		super._init(type, ui);
 
 class FarmerGroup extends Group:
-	func _init(type):
+	func _init(type, ui):
 		population = 300;
 		production_costs["security"] = 0.2;
 		production_costs["tools"] = 0.2;
 		production_costs["food"] = 0.2;
 		production_ratio = 3;
 		output_type = "food";
-		super._init(type);
+		super._init(type, ui);
 
 class FactoryGroup extends Group:
-	func _init(type):
+	func _init(type, ui):
 		population = 150;
 		production_costs["food"] = 3.5;
 		production_costs["material"] = 3.5;
 		production_ratio = 2.6;
 		output_type = "tools";
-		super._init(type);
+		super._init(type, ui);
 
 class ResearchGroup extends Group:
-	func _init(type):
+	func _init(type, ui):
 		population = 50;
 		production_costs["food"] = 0.2;
 		production_costs["tools"] = 0.2;
 		production_ratio = 1;
 		output_type = "knowledge";
-		super._init(type);
+		super._init(type, ui);
 
 class MilitaryGroup extends Group:
-	func _init(type):
+	func _init(type, ui):
 		population = 100;
 		production_costs["medicine"] = 2.5;
 		production_costs["food"] = 1.25;
 		production_costs["tools"] = 2.5;
 		production_ratio = 0.75;
 		output_type = "security";
-		super._init(type);
+		super._init(type, ui);

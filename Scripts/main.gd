@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var stockpile = $Stockpile;
+@onready var stockpile = Stockpile.new();
 var groups: Array[Group] = [];
 var allocated_resoureces = {}:
 	get:
@@ -21,26 +21,27 @@ var resource_change_history = [];
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$GroupBox.setNameLabel("bob");
 	for type in Group.GroupTypes:
 		match Group.GroupTypes[type]:
 			Group.GroupTypes.MEDICAL:
 				print("type: medical");
-				groups.append(Group.MedicalGroup.new(type));
+				groups.append(Group.MedicalGroup.new(type, $GroupBox));
 			Group.GroupTypes.GATHERER:
 				print("type: gatherer");
-				groups.append(Group.GathererGroup.new(type));
+				groups.append(Group.GathererGroup.new(type, $GroupBox2));
 			Group.GroupTypes.FARMER:
 				print("type: farmer");
-				groups.append(Group.FarmerGroup.new(type));
+				groups.append(Group.FarmerGroup.new(type, $GroupBox3));
 			Group.GroupTypes.FACTORY:
 				print("type: factory");
-				groups.append(Group.FactoryGroup.new(type));
+				groups.append(Group.FactoryGroup.new(type, $GroupBox4));
 			Group.GroupTypes.RESEARCH:
 				print("type: research");
-				groups.append(Group.ResearchGroup.new(type));
+				groups.append(Group.ResearchGroup.new(type, $GroupBox5));
 			Group.GroupTypes.MILITARY:
 				print("type: military");
-				groups.append(Group.MilitaryGroup.new(type));
+				groups.append(Group.MilitaryGroup.new(type, $GroupBox6));
 			_:
 				print("??")
 	

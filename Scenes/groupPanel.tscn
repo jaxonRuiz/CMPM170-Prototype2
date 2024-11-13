@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dq6rmn5t3ryrp"]
 
-[ext_resource type="Script" path="res://Scenes/group_panel.gd" id="1_wosef"]
+[ext_resource type="Script" path="res://Scripts/group_panel.gd" id="1_wosef"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7yiby"]
 corner_radius_top_left = 4
@@ -8,28 +8,34 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
-[node name="Control" type="Control"]
+[node name="GroupBox" type="Control"]
 layout_mode = 3
-anchor_left = 0.914
-anchor_right = 0.914
-offset_left = -114.928
-offset_right = 99.072
-offset_bottom = 103.0
+anchor_left = 0.907
+anchor_top = 0.079
+anchor_right = 0.907
+anchor_bottom = 0.079
+offset_left = -106.864
+offset_top = -51.192
+offset_right = 107.136
+offset_bottom = 51.808
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wosef")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="GroupInfoBox" type="Panel" parent="."]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -105.5
-offset_right = 104.5
-offset_bottom = 101.0
+anchors_preset = -1
+anchor_left = 0.514
+anchor_top = 0.5
+anchor_right = 0.514
+anchor_bottom = 0.5
+offset_left = -104.996
+offset_top = -50.5
+offset_right = 105.004
+offset_bottom = 50.5
 grow_horizontal = 2
 
-[node name="Frame" type="Panel" parent="Panel"]
+[node name="Frame" type="Panel" parent="GroupInfoBox"]
 layout_mode = 1
 offset_left = 8.0
 offset_top = 8.0
@@ -37,7 +43,7 @@ offset_right = 67.0
 offset_bottom = 64.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_7yiby")
 
-[node name="TextureRect" type="TextureRect" parent="Panel/Frame"]
+[node name="TextureRect" type="TextureRect" parent="GroupInfoBox/Frame"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -51,18 +57,20 @@ offset_bottom = 22.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Name" type="Label" parent="Panel"]
+[node name="Name" type="Label" parent="GroupInfoBox"]
+unique_name_in_owner = true
 layout_mode = 0
-offset_left = 75.5
-offset_top = 11.0
-offset_right = 191.5
-offset_bottom = 36.0
+offset_left = 74.0
+offset_top = 7.0
+offset_right = 190.0
+offset_bottom = 33.0
 theme_override_font_sizes/font_size = 18
 text = "NAME"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ProgressBar" type="ProgressBar" parent="Panel"]
+[node name="ProgressBar" type="ProgressBar" parent="GroupInfoBox"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
