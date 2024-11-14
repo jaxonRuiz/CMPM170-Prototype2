@@ -118,13 +118,16 @@ func _on_button_pressed() -> void:
 	processTurn();
 
 
-
+func processWindow():
+	window.setCurrentValues(groups[currentGroupI].recieved_input)
+	window.setMaxValues(groups[currentGroupI].expected_input);
+	window.show();
+	
 
 func _on_group_box_1_open_popup() -> void:
 	print("main: button pressed");
-	window.setCurrentValues(groups[0].recieved_input)
-	window.setMaxValues(groups[0].expected_input);
-	window.show();
+	currentGroupI = 0;
+	processWindow();
 	pass # Replace with function body.
 
 func _on_group_box_2_open_popup() -> void:
