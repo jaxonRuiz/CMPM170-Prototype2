@@ -137,8 +137,12 @@ offset_right = 1020.0
 offset_bottom = 612.0
 text = "next turn"
 
-[connection signal="openPopup" from="GroupBox1" to="." method="_on_group_box_1_open_popup"]
+[node name="PopupMenu" type="PopupMenu" parent="."]
+title = "Resource Management"
+initial_position = 2
+
 [connection signal="openPopup" from="GroupBox1" to="." method="_on_group_box_open_popup"]
+[connection signal="openPopup" from="GroupBox1" to="." method="_on_group_box_1_open_popup"]
 [connection signal="openPopup" from="GroupBox2" to="." method="_on_group_box_2_open_popup"]
 [connection signal="openPopup" from="GroupBox3" to="." method="_on_group_box_3_open_popup"]
 [connection signal="openPopup" from="GroupBox4" to="." method="_on_group_box_4_open_popup"]

@@ -1,5 +1,7 @@
 extends Node2D
 
+@onready var popUp = $"PopupMenu";
+
 @onready var stockpile = Stockpile.new();
 var groups: Array[Group] = [];
 var total_population:
@@ -117,6 +119,7 @@ func _on_button_pressed() -> void:
 
 func _on_group_box_1_open_popup() -> void:
 	print("main: button pressed");
+	popUp.show();
 	pass # Replace with function body.
 
 func _on_group_box_2_open_popup() -> void:
