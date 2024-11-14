@@ -1,9 +1,10 @@
 extends Node2D
 
-@onready var popUp = $"PopupMenu";
+@onready var window = $Window
 
 @onready var stockpile = Stockpile.new();
 var groups: Array[Group] = [];
+var currentGroupI = 0;
 var total_population:
 	get:
 		var count = 0;
@@ -117,9 +118,13 @@ func _on_button_pressed() -> void:
 	processTurn();
 
 
+
+
 func _on_group_box_1_open_popup() -> void:
 	print("main: button pressed");
-	popUp.show();
+	window.setCurrentValues(groups[0].recieved_input)
+	window.setMaxValues(groups[0].expected_input);
+	window.show();
 	pass # Replace with function body.
 
 func _on_group_box_2_open_popup() -> void:
@@ -136,3 +141,8 @@ func _on_group_box_5_open_popup() -> void:
 
 func _on_group_box_6_open_popup() -> void:
 	pass
+
+
+func _on_window_close_requested() -> void:
+	groups[currentGroupI].setInput($Window.getResourceValues());
+	$Window.hide();

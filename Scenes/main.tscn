@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dokdkx2hfg3hi"]
+[gd_scene load_steps=5 format=3 uid="uid://dokdkx2hfg3hi"]
 
 [ext_resource type="Script" path="res://Scripts/stockpile.gd" id="1_f5xc3"]
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_o1l7r"]
 [ext_resource type="PackedScene" uid="uid://dq6rmn5t3ryrp" path="res://Scenes/groupPanel.tscn" id="4_5cbqy"]
+[ext_resource type="Script" path="res://Scenes/popupWindow.gd" id="4_x307e"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_o1l7r")
@@ -137,15 +138,301 @@ offset_right = 1020.0
 offset_bottom = 612.0
 text = "next turn"
 
-[node name="PopupMenu" type="PopupMenu" parent="."]
-title = "Resource Management"
-initial_position = 2
+[node name="Window" type="Window" parent="."]
+position = Vector2i(455, 110)
+size = Vector2i(370, 420)
+visible = false
+script = ExtResource("4_x307e")
 
-[connection signal="openPopup" from="GroupBox1" to="." method="_on_group_box_open_popup"]
+[node name="Control" type="Control" parent="Window"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -575.0
+offset_top = -324.0
+offset_right = 575.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Window/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -149.0
+offset_top = -195.0
+offset_right = 171.0
+offset_bottom = 227.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Medicine" type="Panel" parent="Window/Control/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -101.0
+offset_top = -143.0
+offset_right = 99.0
+offset_bottom = -93.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MedicinesSlide" type="HSlider" parent="Window/Control/Panel/Medicine"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -74.0
+offset_top = -25.0
+offset_right = 74.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="Window/Control/Panel/Medicine"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Medicine"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Food" type="Panel" parent="Window/Control/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -101.0
+offset_top = -86.0
+offset_right = 99.0
+offset_bottom = -36.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FoodSlide" type="HSlider" parent="Window/Control/Panel/Food"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -74.0
+offset_top = -25.0
+offset_right = 74.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="Window/Control/Panel/Food"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Food"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Materials" type="Panel" parent="Window/Control/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -101.0
+offset_top = -31.0
+offset_right = 99.0
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MaterialsSlide" type="HSlider" parent="Window/Control/Panel/Materials"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -74.0
+offset_top = -25.0
+offset_right = 74.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="Window/Control/Panel/Materials"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Materials"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Tools" type="Panel" parent="Window/Control/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -101.0
+offset_top = 28.0
+offset_right = 99.0
+offset_bottom = 78.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ToolsSlide" type="HSlider" parent="Window/Control/Panel/Tools"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -74.0
+offset_top = -25.0
+offset_right = 74.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="Window/Control/Panel/Tools"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Tools"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Knowledge" type="Panel" parent="Window/Control/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -101.0
+offset_top = 85.0
+offset_right = 99.0
+offset_bottom = 135.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="KnowledgeSlide" type="HSlider" parent="Window/Control/Panel/Knowledge"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -74.0
+offset_top = -25.0
+offset_right = 74.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="Window/Control/Panel/Knowledge"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -43.0
+offset_right = 43.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Knowledge"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Security" type="Panel" parent="Window/Control/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -101.0
+offset_top = 140.0
+offset_right = 99.0
+offset_bottom = 190.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SecuritySlide" type="HSlider" parent="Window/Control/Panel/Security"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -74.0
+offset_top = -25.0
+offset_right = 74.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="Window/Control/Panel/Security"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -31.5
+offset_right = 31.5
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Security"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Window/Control/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -115.5
+offset_top = 10.0
+offset_right = 116.5
+offset_bottom = 60.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 28
+text = "Adjust Resources"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="openPopup" from="GroupBox1" to="." method="_on_group_box_1_open_popup"]
+[connection signal="openPopup" from="GroupBox1" to="." method="_on_group_box_open_popup"]
 [connection signal="openPopup" from="GroupBox2" to="." method="_on_group_box_2_open_popup"]
 [connection signal="openPopup" from="GroupBox3" to="." method="_on_group_box_3_open_popup"]
 [connection signal="openPopup" from="GroupBox4" to="." method="_on_group_box_4_open_popup"]
 [connection signal="openPopup" from="GroupBox5" to="." method="_on_group_box_5_open_popup"]
 [connection signal="openPopup" from="GroupBox6" to="." method="_on_group_box_6_open_popup"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="close_requested" from="Window" to="." method="_on_window_close_requested"]
