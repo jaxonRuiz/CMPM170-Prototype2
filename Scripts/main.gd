@@ -131,18 +131,28 @@ func _on_group_box_1_open_popup() -> void:
 	pass # Replace with function body.
 
 func _on_group_box_2_open_popup() -> void:
+	currentGroupI = 1;
+	processWindow();
 	pass # Replace with function body.
 
 func _on_group_box_3_open_popup() -> void:
+	currentGroupI = 2;
+	processWindow();
 	pass
 
 func _on_group_box_4_open_popup() -> void:
+	currentGroupI = 3;
+	processWindow();
 	pass
 
 func _on_group_box_5_open_popup() -> void:
+	currentGroupI = 4;
+	processWindow();
 	pass
 
 func _on_group_box_6_open_popup() -> void:
+	currentGroupI = 5;
+	processWindow();
 	pass
 
 
