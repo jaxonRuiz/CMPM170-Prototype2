@@ -33,12 +33,11 @@ var resource_change_history = [];
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$GroupBox.setNameLabel("bob");
 	for type in Group.GroupTypes:
 		match Group.GroupTypes[type]:
 			Group.GroupTypes.MEDICAL:
 				print("type: medical");
-				groups.append(Group.MedicalGroup.new(type, $GroupBox));
+				groups.append(Group.MedicalGroup.new(type, $GroupBox1));
 			Group.GroupTypes.GATHERER:
 				print("type: gatherer");
 				groups.append(Group.GathererGroup.new(type, $GroupBox2));
@@ -72,9 +71,10 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("next_turn"):
 		if checkResourceAvailability():
 			processTurn();
-			print("next turn");
 
 func processTurn():
+	print("next turn");
+	
 	var past_stockpile = stockpile.resources.duplicate();
 	updateAllocatedResources();
 	for group in groups:
@@ -109,3 +109,27 @@ func checkResourceAvailability():
 			print("INSUFFICIENT RESOURCES");
 			return false;
 	return true;
+
+# next turn button
+func _on_button_pressed() -> void:
+	processTurn();
+
+
+func _on_group_box_1_open_popup() -> void:
+	print("main: button pressed");
+	pass # Replace with function body.
+
+func _on_group_box_2_open_popup() -> void:
+	pass # Replace with function body.
+
+func _on_group_box_3_open_popup() -> void:
+	pass
+
+func _on_group_box_4_open_popup() -> void:
+	pass
+
+func _on_group_box_5_open_popup() -> void:
+	pass
+
+func _on_group_box_6_open_popup() -> void:
+	pass

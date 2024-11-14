@@ -94,7 +94,7 @@ func processTurn(stockpile:Dictionary):
 	group_box.updatePopulation(population);
 	calculate_expected_resources();
 	
-	
+
 
 class MedicalGroup extends Group:
 	func _init(type, ui):

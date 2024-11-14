@@ -5,6 +5,8 @@ extends Control
 @onready var infectionBar = %TextureProgressBar;
 @onready var populationLabel = %PopulationLabel;
 
+signal openPopup;
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 
@@ -31,3 +33,9 @@ func loadTextures(code:String):
 
 func updatePopulation(pop:int):
 	populationLabel.text = "Pop: " + str(pop);
+
+func _on_button_pressed() -> void:
+	print("GroupBox: button pressed");
+	print(nameLabel.text);
+	openPopup.emit();
+	
