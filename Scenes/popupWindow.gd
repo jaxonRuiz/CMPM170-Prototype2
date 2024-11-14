@@ -46,35 +46,39 @@ func setCurrentValues(resources:Dictionary):
 	
 func setMaxValues(resources:Dictionary):
 	if resources.has("medicine"):
-		med_slide.max_value = resources["medicine"]
+		med_slide.max_value = resources["medicine"] * 1.2
 	else:
-		med_slide.max_value = 0
+		med_slide.max_value = 1
 	if resources.has("tools"):
-		tools_slide.max_value = resources["tools"]
+		tools_slide.max_value = resources["tools"] * 1.2
 	else:
-		tools_slide.max_value = 0
+		tools_slide.max_value = 1
 	if resources.has("food"):
-		food_slide.max_value = resources["food"]
+		food_slide.max_value = resources["food"] * 1.2
 	else:
-		food_slide.max_value = 0
+		food_slide.max_value = 1
 	if resources.has("materials"):
-		mat_slide.max_value = resources["materials"]
+		mat_slide.max_value = resources["materials"] * 1.2
 	else:
-		mat_slide.max_value = 0
+		mat_slide.max_value = 1
 	if resources.has("security"):
-		sec_slide.max_value = resources["security"]
+		secu_slide.max_value = resources["security"] * 1.2
 	else:
-		sec_slide.max_value = 0
+		secu_slide.max_value = 1
 	if resources.has("knowledge"):
-		know_slide.max_value = resources["knowledge"]
+		know_slide.max_value = resources["knowledge"] * 1.2
 	else:
-		know_slide.max_value = 0
+		know_slide.max_value = 1
 
 
 func getResourceValues():
 	var resources = {};
 	resources["medicine"] = med_slide.value;
 	resources["food"] = food_slide.value
+	resources["tools"] = tools_slide.value
+	resources["material"] = mat_slide.value
+	resources["knowledge"] = know_slide.value
+	resources["security"] = secu_slide.value
 	
 	print(resources);
 	return resources;

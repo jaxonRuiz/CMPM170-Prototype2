@@ -427,8 +427,8 @@ text = "Adjust Resources"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="openPopup" from="GroupBox1" to="." method="_on_group_box_open_popup"]
 [connection signal="openPopup" from="GroupBox1" to="." method="_on_group_box_1_open_popup"]
+[connection signal="openPopup" from="GroupBox1" to="." method="_on_group_box_open_popup"]
 [connection signal="openPopup" from="GroupBox2" to="." method="_on_group_box_2_open_popup"]
 [connection signal="openPopup" from="GroupBox3" to="." method="_on_group_box_3_open_popup"]
 [connection signal="openPopup" from="GroupBox4" to="." method="_on_group_box_4_open_popup"]

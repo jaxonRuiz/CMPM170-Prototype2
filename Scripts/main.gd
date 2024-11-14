@@ -59,7 +59,6 @@ func _ready() -> void:
 			_:
 				print("??")
 	
-	#groups[0].setInput({"material": 100, "food": 100, "knowledge": 100}); #manual for now
 	for group in groups:
 		group.setInput(group.expected_input);
 	processTurn();
@@ -96,7 +95,8 @@ func processTurn():
 
 # should be called everytime user enters an input to resources.
 func updateAllocatedResources():
-	var out:String = "Resources Spent:\n";
+	print("update")
+	var out:String = "Resources To Be Spent:\n";
 	var alloc = allocated_resoureces.duplicate();
 	for resource in alloc.keys():
 		out += resource + ": ";
@@ -158,4 +158,5 @@ func _on_group_box_6_open_popup() -> void:
 
 func _on_window_close_requested() -> void:
 	groups[currentGroupI].setInput($Window.getResourceValues());
+	updateAllocatedResources();
 	$Window.hide();
